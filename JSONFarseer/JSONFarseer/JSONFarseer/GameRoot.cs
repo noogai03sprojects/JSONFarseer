@@ -22,6 +22,8 @@ namespace JSONFarseer
         SpriteBatch spriteBatch;
         public static GameRoot Instance;
 
+        Texture2D texture;
+
         public GameRoot()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -50,6 +52,8 @@ namespace JSONFarseer
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            texture = Content.Load<Texture2D>("1v1");
 
             // TODO: use this.Content to load your game content here
         }
@@ -86,6 +90,12 @@ namespace JSONFarseer
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(texture, new Vector2(10, 10), Color.White);
+
+            spriteBatch.End();
 
             // TODO: Add your drawing code here
 

@@ -92,6 +92,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSONFarseer\JSONFarseer\JSONFarseer.csproj">
+      <Project>{9CC75FD9-1EB2-4AB9-87FC-BF8BCB60EA97}</Project>
+      <Name>JSONFarseer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
