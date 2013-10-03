@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C# Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONFarseer", "JSONFarseer\JSONFarseer\JSONFarseer.csproj", "{9CC75FD9-1EB2-4AB9-87FC-BF8BCB60EA97}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "JSONFarseerContent", "JSONFarseer\JSONFarseerContent\JSONFarseerContent.contentproj", "{87A49FB9-DBC6-4932-9100-744BBD9ACE86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONFarseerContent", "JSONFarseer\JSONFarseerContent\JSONFarseerContent.contentproj", "{87A49FB9-DBC6-4932-9100-744BBD9ACE86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Editor", "Editor\Editor.csproj", "{CA46C33F-D412-484C-88E7-76C2706990C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{9CC75FD9-1EB2-4AB9-87FC-BF8BCB60EA97}.Release|x86.Build.0 = Release|x86
 		{87A49FB9-DBC6-4932-9100-744BBD9ACE86}.Debug|x86.ActiveCfg = Debug|x86
 		{87A49FB9-DBC6-4932-9100-744BBD9ACE86}.Release|x86.ActiveCfg = Release|x86
+		{CA46C33F-D412-484C-88E7-76C2706990C8}.Debug|x86.ActiveCfg = Debug|x86
+		{CA46C33F-D412-484C-88E7-76C2706990C8}.Debug|x86.Build.0 = Debug|x86
+		{CA46C33F-D412-484C-88E7-76C2706990C8}.Release|x86.ActiveCfg = Release|x86
+		{CA46C33F-D412-484C-88E7-76C2706990C8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
