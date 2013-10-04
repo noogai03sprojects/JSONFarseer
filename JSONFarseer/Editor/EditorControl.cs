@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace Editor
 {
@@ -21,6 +22,10 @@ namespace Editor
 
         PrimitiveBatch primitiveBatch;
 
+        float delta;
+
+        Vector2 ScreenCentre;
+
         protected override void Initialize()
         {
             Application.Idle += delegate { Invalidate(); };
@@ -32,6 +37,8 @@ namespace Editor
             content.RootDirectory = "Content";
 
             LoadContent(content);
+
+            ScreenCentre = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) / 2;
         }
 
         public void LoadContent(ContentManager content)
@@ -40,12 +47,27 @@ namespace Editor
             timer = Stopwatch.StartNew();
         }
 
+        public void LoadLevel(string path)
+        {
+            //Console.WriteLine(path);
+
+            StreamReader reader = new StreamReader(path);
+
+            string data;
+
+            using (reader)
+            {
+                data = reader.ReadToEnd();
+            }
+            Console.Write(data);
+        }
+
         protected override void Draw()
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //float delta = (float)timer.Elapsed.TotalMilliseconds;
-            //timer.Restart();
+            delta = (float)timer.Elapsed.TotalMilliseconds;
+            timer.Restart();
 
             
 
@@ -55,24 +77,7 @@ namespace Editor
 
             spriteBatch.End();
 
-            
-
-            primitiveBatch.Begin(PrimitiveType.LineList);
-            primitiveBatch.AddVertex(new Vector2(0, 0), Color.Black);
-            primitiveBatch.AddVertex(new Vector2(300, 300), Color.Purple);
-            primitiveBatch.AddVertex(new Vector2(300, 300), Color.Purple);
-            primitiveBatch.AddVertex(new Vector2(0, 300), Color.Purple);            
-
-            primitiveBatch.End();
-
-            primitiveBatch.Begin(PrimitiveType.TriangleList);
-
-            primitiveBatch.DrawCircle(new Vector2(100, 100), 64, Color.Red);
-            primitiveBatch.AddVertex(new Vector2(0, 0), Color.Red);
-            primitiveBatch.AddVertex(new Vector2(300, 300), Color.Blue);
-            primitiveBatch.AddVertex(new Vector2(0, 300), Color.Purple);   
-
-            primitiveBatch.End();
+            primitiveBatch.DrawRectangle(true, ScreenCentre, new Vector2(100, 100), 1f, Color.Red);
         }
     }
 }
