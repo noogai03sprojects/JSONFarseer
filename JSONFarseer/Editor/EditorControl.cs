@@ -26,12 +26,15 @@ namespace Editor
 
         Vector2 ScreenCentre;
 
+        float angle = 0;
+
         protected override void Initialize()
         {
             Application.Idle += delegate { Invalidate(); };
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             primitiveBatch = new PrimitiveBatch(GraphicsDevice);
+            Art.GraphicsDevice = GraphicsDevice;
 
             content = new ContentManager(Services);
             content.RootDirectory = "Content";
@@ -39,36 +42,43 @@ namespace Editor
             LoadContent(content);
 
             ScreenCentre = new Vector2(GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height) / 2;
-        }
+        }        
 
         public void LoadContent(ContentManager content)
         {
+            //FileStream stream = new FileStream("C:\\Users\\Noogai03\\Pictures\\ash.jpg", FileMode.Open);
+            //test = Texture2D.FromStream(GraphicsDevice, stream);
+            //test = content.Load<Texture2D>(
+            //test = Art.LoadTextureStream("C:\\Users\\Noogai03\\Pictures\\ash.jpg");
             test = content.Load<Texture2D>("1v1");
             timer = Stopwatch.StartNew();
         }
 
         public void LoadLevel(string path)
         {
-            //Console.WriteLine(path);
+            LevelManager.LoadLevel(path);
 
-            StreamReader reader = new StreamReader(path);
+            
+        }
 
-            string data;
+        private void Update(float delta)
+        {
+            LevelManager.Update(delta);
 
-            using (reader)
-            {
-                data = reader.ReadToEnd();
-            }
-            Console.Write(data);
+            angle += 0.5f * delta;
         }
 
         protected override void Draw()
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            delta = (float)timer.Elapsed.TotalMilliseconds;
+            delta = (float)timer.Elapsed.TotalSeconds;
             timer.Restart();
 
+            Update(delta);
+
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+
+            LevelManager.Draw(primitiveBatch, spriteBatch);
             
 
             spriteBatch.Begin();
@@ -77,7 +87,7 @@ namespace Editor
 
             spriteBatch.End();
 
-            primitiveBatch.DrawRectangle(true, ScreenCentre, new Vector2(100, 100), 1f, Color.Red);
+            primitiveBatch.DrawRectangle(false, ScreenCentre, new Vector2(100, 100), angle, Color.Red);
         }
     }
 }

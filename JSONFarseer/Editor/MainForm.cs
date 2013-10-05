@@ -49,6 +49,7 @@ namespace Editor
             {
                 defaultDir = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
                 editorControl1.LoadLevel(openFileDialog1.FileName);
+                lblFilePath.Text = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
             }
         }
 
@@ -66,5 +67,38 @@ namespace Editor
                 writer.Write(defaultDir);
             }
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (LevelManager.HasSaved)
+            {
+                LevelManager.SaveLevel(LevelManager.CurrentPath);
+            }
+            else
+            {
+                DialogResult result = saveFileDialog1.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    LevelManager.SaveLevel(saveFileDialog1.FileName);
+                    lblFilePath.Text = System.IO.Path.GetFileNameWithoutExtension(saveFileDialog1.FileName);
+                }
+            }
+            //LevelManager.SaveLevel("blobbymcfartington");
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LevelManager.CreateNewLevel();
+        }
+
+        private void btnNewRectangle_Click(object sender, EventArgs e)
+        {
+            LevelManager.CreateRectangle();
+        }
+
+        private void editorControl1_MouseDown(object sender, MouseEventArgs e)
+        {
+            LevelManager.MouseDown(new Microsoft.Xna.Framework.Vector2(e.X, e.Y));
+        }        
     }
 }

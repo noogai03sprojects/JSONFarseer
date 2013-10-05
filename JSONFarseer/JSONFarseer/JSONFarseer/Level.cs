@@ -6,7 +6,7 @@ using FarseerPhysics.Dynamics;
 
 namespace JSONFarseer
 {
-    class Level
+    public class Level
     {
         //World World;
     }

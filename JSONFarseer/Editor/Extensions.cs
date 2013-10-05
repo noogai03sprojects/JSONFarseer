@@ -62,11 +62,16 @@ namespace Editor
         //}
         public static void DrawRectangle(this PrimitiveBatch primitiveBatch, bool filled, Vector2 centre, Vector2 size, float rotation, Color color)
         {
-            Quaternion quat = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, rotation);
-            size = Vector2.Transform(size, quat);
+            //Quaternion quat = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, rotation);
+            //size = Vector2.Transform(size, quat);
 
             Vector2 halfSize = size / 2;
-            Vector2 topLeft = centre - halfSize;
+            Vector2 altHalfSize = new Vector2(halfSize.X, -halfSize.Y);
+
+            Quaternion quat = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, rotation);
+            halfSize = Vector2.Transform(halfSize, quat);
+            altHalfSize = Vector2.Transform(altHalfSize, quat);
+            //Vector2 topLeft = centre - halfSize;
 
             //Matrix rot = Matrix.CreateRotationZ(rotation);
             
@@ -77,12 +82,12 @@ namespace Editor
                 primitiveBatch.Begin(PrimitiveType.TriangleList);
                 
                 primitiveBatch.AddVertex(centre - halfSize, color);
-                primitiveBatch.AddVertex(centre + new Vector2(halfSize.X, -halfSize.Y), color);
-                primitiveBatch.AddVertex(centre + new Vector2(-halfSize.X, halfSize.Y), color);
+                primitiveBatch.AddVertex(centre + altHalfSize, color);
+                primitiveBatch.AddVertex(centre - altHalfSize, color);
 
-                primitiveBatch.AddVertex(centre + halfSize, color);                
-                primitiveBatch.AddVertex(centre + new Vector2(-halfSize.X, halfSize.Y), color);
-                primitiveBatch.AddVertex(centre + new Vector2(halfSize.X, -halfSize.Y), color);
+                primitiveBatch.AddVertex(centre + halfSize, color);
+                primitiveBatch.AddVertex(centre - altHalfSize, color);
+                primitiveBatch.AddVertex(centre + altHalfSize, color);
                                 
 
                 primitiveBatch.End();
@@ -92,20 +97,25 @@ namespace Editor
                 primitiveBatch.Begin(PrimitiveType.LineList);
                 //top
                 primitiveBatch.AddVertex(centre - halfSize, color);
-                primitiveBatch.AddVertex(centre + new Vector2(halfSize.X, -halfSize.Y), color);
+                primitiveBatch.AddVertex(centre + altHalfSize, color);
 
-                primitiveBatch.AddVertex(centre + new Vector2(halfSize.X, -halfSize.Y), color);
+                primitiveBatch.AddVertex(centre + altHalfSize, color);
                 primitiveBatch.AddVertex(centre + halfSize, color);
 
                 primitiveBatch.AddVertex(centre + halfSize, color);
-                primitiveBatch.AddVertex(centre + new Vector2(-halfSize.X, halfSize.Y), color);
+                primitiveBatch.AddVertex(centre - altHalfSize, color);
 
-                primitiveBatch.AddVertex(centre + new Vector2(-halfSize.X, halfSize.Y), color);
+                primitiveBatch.AddVertex(centre - altHalfSize, color);
                 primitiveBatch.AddVertex(centre - halfSize, color);
 
                 primitiveBatch.End();
             }
-        }        
+        }
+
+        public static void DrawRectangle(this PrimitiveBatch primitiveBatch, bool filled, Vector2 centre, float width, float height, float rotation, Color color)
+        {
+            primitiveBatch.DrawRectangle(filled, centre, new Vector2(width, height), rotation, color);
+        }
 
         public static void DrawCircle(this PrimitiveBatch primitiveBatch, Vector2 position, float radius, Color color)
         {

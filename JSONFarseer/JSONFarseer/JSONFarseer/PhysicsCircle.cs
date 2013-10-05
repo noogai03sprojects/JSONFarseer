@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace JSONFarseer
 {
-    struct PhysicsCircle
+    public struct PhysicsCircle
     {
         public Vector2 Position;
         public float Radius;
