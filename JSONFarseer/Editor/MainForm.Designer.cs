@@ -36,9 +36,13 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnNewRectangle = new System.Windows.Forms.Button();
-            this.editorControl1 = new Editor.EditorControl();
+            this.btnRectangle = new System.Windows.Forms.Button();
             this.lblFilePath = new System.Windows.Forms.Label();
+            this.lstLayers = new System.Windows.Forms.ListBox();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnCircle = new System.Windows.Forms.Button();
+            this.editorControl1 = new Editor.EditorControl();
+            this.btnTileset = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +90,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(716, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(852, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,15 +103,63 @@
             // 
             this.saveFileDialog1.Filter = "JSON data|*.json";
             // 
-            // btnNewRectangle
+            // btnRectangle
             // 
-            this.btnNewRectangle.Location = new System.Drawing.Point(145, 446);
-            this.btnNewRectangle.Name = "btnNewRectangle";
-            this.btnNewRectangle.Size = new System.Drawing.Size(117, 39);
-            this.btnNewRectangle.TabIndex = 2;
-            this.btnNewRectangle.Text = "New Rectangle";
-            this.btnNewRectangle.UseVisualStyleBackColor = true;
-            this.btnNewRectangle.Click += new System.EventHandler(this.btnNewRectangle_Click);
+            this.btnRectangle.Location = new System.Drawing.Point(72, 460);
+            this.btnRectangle.Name = "btnRectangle";
+            this.btnRectangle.Size = new System.Drawing.Size(66, 25);
+            this.btnRectangle.TabIndex = 2;
+            this.btnRectangle.Text = "Rectangle";
+            this.btnRectangle.UseVisualStyleBackColor = true;
+            this.btnRectangle.Click += new System.EventHandler(this.btnNewRectangle_Click);
+            // 
+            // lblFilePath
+            // 
+            this.lblFilePath.AutoSize = true;
+            this.lblFilePath.Location = new System.Drawing.Point(115, 7);
+            this.lblFilePath.Name = "lblFilePath";
+            this.lblFilePath.Size = new System.Drawing.Size(81, 13);
+            this.lblFilePath.TabIndex = 3;
+            this.lblFilePath.Text = "No level loaded";
+            // 
+            // lstLayers
+            // 
+            this.lstLayers.FormattingEnabled = true;
+            this.lstLayers.Items.AddRange(new object[] {
+            "Physics data",
+            "Background",
+            "Layer 1",
+            "Layer 2",
+            "Layer 3",
+            "Layer 4",
+            "Layer 5",
+            "Layer 6",
+            "Layer 7",
+            "Layer 8",
+            "Layer 9",
+            "Foreground"});
+            this.lstLayers.Location = new System.Drawing.Point(718, 30);
+            this.lstLayers.Name = "lstLayers";
+            this.lstLayers.Size = new System.Drawing.Size(131, 160);
+            this.lstLayers.TabIndex = 4;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(12, 460);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(54, 25);
+            this.btnSelect.TabIndex = 5;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            // 
+            // btnCircle
+            // 
+            this.btnCircle.Location = new System.Drawing.Point(144, 460);
+            this.btnCircle.Name = "btnCircle";
+            this.btnCircle.Size = new System.Drawing.Size(48, 25);
+            this.btnCircle.TabIndex = 6;
+            this.btnCircle.Text = "Circle";
+            this.btnCircle.UseVisualStyleBackColor = true;
             // 
             // editorControl1
             // 
@@ -118,22 +170,27 @@
             this.editorControl1.Text = "editorControl1";
             this.editorControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseDown);
             // 
-            // lblFilePath
+            // btnTileset
             // 
-            this.lblFilePath.AutoSize = true;
-            this.lblFilePath.Location = new System.Drawing.Point(12, 446);
-            this.lblFilePath.Name = "lblFilePath";
-            this.lblFilePath.Size = new System.Drawing.Size(81, 13);
-            this.lblFilePath.TabIndex = 3;
-            this.lblFilePath.Text = "No level loaded";
+            this.btnTileset.Location = new System.Drawing.Point(722, 196);
+            this.btnTileset.Name = "btnTileset";
+            this.btnTileset.Size = new System.Drawing.Size(123, 28);
+            this.btnTileset.TabIndex = 7;
+            this.btnTileset.Text = "Manage Tileset";
+            this.btnTileset.UseVisualStyleBackColor = true;
+            this.btnTileset.Click += new System.EventHandler(this.btnTileset_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 495);
+            this.ClientSize = new System.Drawing.Size(852, 495);
+            this.Controls.Add(this.btnTileset);
+            this.Controls.Add(this.btnCircle);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.lstLayers);
             this.Controls.Add(this.lblFilePath);
-            this.Controls.Add(this.btnNewRectangle);
+            this.Controls.Add(this.btnRectangle);
             this.Controls.Add(this.editorControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -159,8 +216,12 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.Button btnNewRectangle;
+        private System.Windows.Forms.Button btnRectangle;
         private System.Windows.Forms.Label lblFilePath;
+        private System.Windows.Forms.ListBox lstLayers;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnCircle;
+        private System.Windows.Forms.Button btnTileset;
     }
 }
 

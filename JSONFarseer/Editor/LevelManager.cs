@@ -86,6 +86,11 @@ namespace Editor
                     primBatch.DrawRectangle(true, rectangle.Position, rectangle.Width, rectangle.Height, rectangle.Rotation, PhysicsColor);
                 }
             }
+            else
+            {
+                //GraphicsDevice.
+                spriteBatch.GraphicsDevice.Clear(Color.Black);
+            }
         }
     }
 }

@@ -99,6 +99,12 @@ namespace Editor
         private void editorControl1_MouseDown(object sender, MouseEventArgs e)
         {
             LevelManager.MouseDown(new Microsoft.Xna.Framework.Vector2(e.X, e.Y));
+        }
+
+        private void btnTileset_Click(object sender, EventArgs e)
+        {
+            TilesetSelector selector = new TilesetSelector();
+            selector.Show();
         }        
     }
 }
