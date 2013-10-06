@@ -18,7 +18,10 @@ namespace Editor
         {
             //openFileDialog1.AutoUpgradeEnabled = true;
 
+            
+
             InitializeComponent();
+
         }        
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,7 +58,10 @@ namespace Editor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            OneVOneMeIRLIWillWreckUFaggot gingerWindow = new OneVOneMeIRLIWillWreckUFaggot();
+            gingerWindow.Left = this.Left + this.Width;
+            //gingerWindow.Location = new Point(this.Location.X + this.Width * 3, this.Location.Y);
+            gingerWindow.Show();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -105,6 +111,26 @@ namespace Editor
         {
             TilesetSelector selector = new TilesetSelector();
             selector.Show();
+        }
+
+        private void editorControl1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void editorControl1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_ResizeEnd(object sender, EventArgs e)
+        {
+            //Args
         }        
     }
 }

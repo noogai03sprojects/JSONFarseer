@@ -18,6 +18,9 @@ namespace Editor
         public static bool HasSaved;
         public static string CurrentPath;
 
+        public static MouseMode MouseMode;
+
+        #region Loading and saving
         public static void LoadLevel(string path)
         {
             string json;
@@ -46,6 +49,7 @@ namespace Editor
 
             HasSaved = true;
         }
+        #endregion
 
         public static void CreateNewLevel()
         {

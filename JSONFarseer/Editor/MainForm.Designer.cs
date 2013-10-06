@@ -41,8 +41,8 @@
             this.lstLayers = new System.Windows.Forms.ListBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnCircle = new System.Windows.Forms.Button();
-            this.editorControl1 = new Editor.EditorControl();
             this.btnTileset = new System.Windows.Forms.Button();
+            this.editorControl1 = new Editor.EditorControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -161,15 +161,6 @@
             this.btnCircle.Text = "Circle";
             this.btnCircle.UseVisualStyleBackColor = true;
             // 
-            // editorControl1
-            // 
-            this.editorControl1.Location = new System.Drawing.Point(0, 27);
-            this.editorControl1.Name = "editorControl1";
-            this.editorControl1.Size = new System.Drawing.Size(716, 413);
-            this.editorControl1.TabIndex = 0;
-            this.editorControl1.Text = "editorControl1";
-            this.editorControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseDown);
-            // 
             // btnTileset
             // 
             this.btnTileset.Location = new System.Drawing.Point(722, 196);
@@ -179,6 +170,17 @@
             this.btnTileset.Text = "Manage Tileset";
             this.btnTileset.UseVisualStyleBackColor = true;
             this.btnTileset.Click += new System.EventHandler(this.btnTileset_Click);
+            // 
+            // editorControl1
+            // 
+            this.editorControl1.Location = new System.Drawing.Point(0, 27);
+            this.editorControl1.Name = "editorControl1";
+            this.editorControl1.Size = new System.Drawing.Size(716, 413);
+            this.editorControl1.TabIndex = 0;
+            this.editorControl1.Text = "editorControl1";
+            this.editorControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseDown);
+            this.editorControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseMove);
+            this.editorControl1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseUp);
             // 
             // MainForm
             // 
@@ -198,6 +200,8 @@
             this.Text = "Level editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

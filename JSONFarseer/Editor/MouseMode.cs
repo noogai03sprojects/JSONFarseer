@@ -8,8 +8,9 @@ namespace Editor
     enum MouseMode
     {
         Select,
+        Move,
         DrawRectangle,
         DrawCircle,
-
+        Rotate
     }
 }

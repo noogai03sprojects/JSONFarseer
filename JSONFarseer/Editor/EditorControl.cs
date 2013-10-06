@@ -18,7 +18,7 @@ namespace Editor
         SpriteBatch spriteBatch;
         ContentManager content;
 
-        Texture2D test;
+        //Texture2D test;
 
         PrimitiveBatch primitiveBatch;
 
@@ -50,7 +50,7 @@ namespace Editor
             //test = Texture2D.FromStream(GraphicsDevice, stream);
             //test = content.Load<Texture2D>(
             //test = Art.LoadTextureStream("C:\\Users\\Noogai03\\Pictures\\ash.jpg");
-            test = content.Load<Texture2D>("1v1");
+            //test = content.Load<Texture2D>("1v1");
             timer = Stopwatch.StartNew();
         }
 
@@ -83,7 +83,7 @@ namespace Editor
 
             spriteBatch.Begin();
 
-            spriteBatch.Draw(test, new Vector2(10, 10), Color.White);
+            //spriteBatch.Draw(test, new Vector2(10, 10), Color.White);
 
             spriteBatch.End();
 
