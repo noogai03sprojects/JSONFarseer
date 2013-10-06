@@ -60,6 +60,17 @@ namespace Editor
 
         //    //primitiveBatch.End();
         //}
+
+        public static void DrawRectangle(this PrimitiveBatch primitiveBatch, bool filled, Rectangle rectangle, float rotation, Color color)
+        {
+            primitiveBatch.DrawRectangle(filled, new Vector2(rectangle.Center.X, rectangle.Center.Y), new Vector2(rectangle.Height, rectangle.Width), rotation, color);
+        }
+
+        public static void DrawRectangleFromPoints(this PrimitiveBatch primitiveBatch, bool filled, Vector2 topLeft, Vector2 bottomRight, float rotation, Color color)
+        {
+            primitiveBatch.DrawRectangle(filled, Vector2.Lerp(topLeft, bottomRight, 0.5f), bottomRight - topLeft, rotation, color);
+        }
+
         public static void DrawRectangle(this PrimitiveBatch primitiveBatch, bool filled, Vector2 centre, Vector2 size, float rotation, Color color)
         {
             //Quaternion quat = Quaternion.CreateFromAxisAngle(Vector3.UnitZ, rotation);

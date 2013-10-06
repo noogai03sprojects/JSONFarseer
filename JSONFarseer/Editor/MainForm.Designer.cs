@@ -60,29 +60,30 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -90,7 +91,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(852, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1125, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -105,7 +106,7 @@
             // 
             // btnRectangle
             // 
-            this.btnRectangle.Location = new System.Drawing.Point(72, 460);
+            this.btnRectangle.Location = new System.Drawing.Point(72, 625);
             this.btnRectangle.Name = "btnRectangle";
             this.btnRectangle.Size = new System.Drawing.Size(66, 25);
             this.btnRectangle.TabIndex = 2;
@@ -138,14 +139,14 @@
             "Layer 8",
             "Layer 9",
             "Foreground"});
-            this.lstLayers.Location = new System.Drawing.Point(718, 30);
+            this.lstLayers.Location = new System.Drawing.Point(982, 27);
             this.lstLayers.Name = "lstLayers";
             this.lstLayers.Size = new System.Drawing.Size(131, 160);
             this.lstLayers.TabIndex = 4;
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(12, 460);
+            this.btnSelect.Location = new System.Drawing.Point(12, 625);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(54, 25);
             this.btnSelect.TabIndex = 5;
@@ -154,7 +155,7 @@
             // 
             // btnCircle
             // 
-            this.btnCircle.Location = new System.Drawing.Point(144, 460);
+            this.btnCircle.Location = new System.Drawing.Point(144, 625);
             this.btnCircle.Name = "btnCircle";
             this.btnCircle.Size = new System.Drawing.Size(48, 25);
             this.btnCircle.TabIndex = 6;
@@ -163,9 +164,9 @@
             // 
             // btnTileset
             // 
-            this.btnTileset.Location = new System.Drawing.Point(722, 196);
+            this.btnTileset.Location = new System.Drawing.Point(982, 193);
             this.btnTileset.Name = "btnTileset";
-            this.btnTileset.Size = new System.Drawing.Size(123, 28);
+            this.btnTileset.Size = new System.Drawing.Size(131, 28);
             this.btnTileset.TabIndex = 7;
             this.btnTileset.Text = "Manage Tileset";
             this.btnTileset.UseVisualStyleBackColor = true;
@@ -175,7 +176,7 @@
             // 
             this.editorControl1.Location = new System.Drawing.Point(0, 27);
             this.editorControl1.Name = "editorControl1";
-            this.editorControl1.Size = new System.Drawing.Size(716, 413);
+            this.editorControl1.Size = new System.Drawing.Size(976, 592);
             this.editorControl1.TabIndex = 0;
             this.editorControl1.Text = "editorControl1";
             this.editorControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.editorControl1_MouseDown);
@@ -186,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 495);
+            this.ClientSize = new System.Drawing.Size(1125, 662);
             this.Controls.Add(this.btnTileset);
             this.Controls.Add(this.btnCircle);
             this.Controls.Add(this.btnSelect);
@@ -195,13 +196,12 @@
             this.Controls.Add(this.btnRectangle);
             this.Controls.Add(this.editorControl1);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Level editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.ResizeEnd += new System.EventHandler(this.MainForm_ResizeEnd);
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
+            this.Load += new System.EventHandler(this.MainForm_Load);            
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

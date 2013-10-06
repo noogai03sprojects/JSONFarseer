@@ -1,0 +1,12 @@
+{
+  "Circles": [],
+  "Rectangles": [
+    {
+      "position": "372, 313",
+      "width": 370.0,
+      "height": 200.0,
+      "rotation": 2.476916
+    }
+  ],
+  "Tileset": {}
+}

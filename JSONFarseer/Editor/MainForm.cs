@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.Xna.Framework;
 
 namespace Editor
 {
@@ -15,14 +16,34 @@ namespace Editor
         string LastDirectoryFile = "lastDirectory";
         string defaultDir;
         public MainForm()
-        {
-            //openFileDialog1.AutoUpgradeEnabled = true;
-
-            
-
+        {            
             InitializeComponent();
+        }
 
-        }        
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.N))
+            {
+                newToolStripMenuItem.PerformClick();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.O))
+            {
+                openToolStripMenuItem.PerformClick();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.S))
+            {
+                saveToolStripMenuItem.PerformClick();
+                return true;
+            }
+            if (keyData == (Keys.Control | Keys.Shift | Keys.S))
+            {
+                saveAsToolStripMenuItem.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -91,10 +112,15 @@ namespace Editor
             }
             //LevelManager.SaveLevel("blobbymcfartington");
         }
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LevelManager.CreateNewLevel();
+            lblFilePath.Text = "No level loaded";
         }
 
         private void btnNewRectangle_Click(object sender, EventArgs e)
@@ -104,7 +130,7 @@ namespace Editor
 
         private void editorControl1_MouseDown(object sender, MouseEventArgs e)
         {
-            LevelManager.MouseDown(new Microsoft.Xna.Framework.Vector2(e.X, e.Y));
+            LevelManager.MouseDown(new Vector2(e.X, e.Y));
         }
 
         private void btnTileset_Click(object sender, EventArgs e)
@@ -115,22 +141,14 @@ namespace Editor
 
         private void editorControl1_MouseMove(object sender, MouseEventArgs e)
         {
-
+            LevelManager.MouseMove(new Vector2(e.X, e.Y));
         }
 
         private void editorControl1_MouseUp(object sender, MouseEventArgs e)
         {
-
-        }
-
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_ResizeEnd(object sender, EventArgs e)
-        {
-            //Args
+            LevelManager.MouseUp(new Vector2(e.X, e.Y));
         }        
+
+                
     }
 }

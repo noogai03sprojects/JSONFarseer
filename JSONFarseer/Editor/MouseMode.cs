@@ -10,6 +10,7 @@ namespace Editor
         Select,
         Move,
         DrawRectangle,
+        DrawRectangleRotate,
         DrawCircle,
         Rotate
     }
