@@ -1,0 +1,36 @@
+{
+  "Circles": [],
+  "Rectangles": [
+    {
+      "position": "45.5, 201.5",
+      "width": 29.0,
+      "height": 309.0,
+      "rotation": -1.37752867
+    },
+    {
+      "position": "484, 231",
+      "width": 570.0,
+      "height": 26.0,
+      "rotation": 3.13813257
+    },
+    {
+      "position": "819.5, 321.5",
+      "width": 297.0,
+      "height": 31.0,
+      "rotation": 2.48567438
+    },
+    {
+      "position": "932.5, 129",
+      "width": 23.0,
+      "height": 238.0,
+      "rotation": -3.06765366
+    },
+    {
+      "position": "463, 409",
+      "width": 498.0,
+      "height": 34.0,
+      "rotation": 0.007812341
+    }
+  ],
+  "Tileset": {}
+}

@@ -53,7 +53,7 @@ namespace Editor
             }
         }
 
-        public void MouseClick(Vector2 pos)
+        public void MouseClicked(Vector2 pos)
         {
             this.pos = pos;
         }

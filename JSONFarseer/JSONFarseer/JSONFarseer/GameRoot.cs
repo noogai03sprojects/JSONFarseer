@@ -24,6 +24,10 @@ namespace JSONFarseer
 
         Texture2D texture;
 
+        //Camera2D camera;
+
+        public static Vector2 ScreenCentre;
+
         public GameRoot()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -40,7 +44,10 @@ namespace JSONFarseer
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here            
+            PhysicsCore.Initialize(new Vector2(0, 9.82f));
+            Camera.Initialize(GraphicsDevice.Viewport);
 
+            ScreenCentre = GraphicsDevice.Viewport.Bounds.Center.ToVector();
             base.Initialize();
         }
 
@@ -54,6 +61,10 @@ namespace JSONFarseer
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             texture = Content.Load<Texture2D>("1v1");
+
+            LevelManager.LoadLevel("data\\testLevel.json");
+
+            PhysicsCore.LoadDebugContent(GraphicsDevice, Content);
 
             // TODO: use this.Content to load your game content here
         }
@@ -79,6 +90,37 @@ namespace JSONFarseer
                 this.Exit();
 
             // TODO: Add your update logic here
+            Camera.Update();
+
+            float MoveSpeed = 5;
+
+            KeyboardState state = Keyboard.GetState();
+            if (state.IsKeyDown(Keys.Right))
+            {
+                Camera.Move(new Vector2(MoveSpeed, 0));
+            }
+            if (state.IsKeyDown(Keys.Left))
+            {
+                Camera.Move(new Vector2(-MoveSpeed, 0));
+            }
+            if (state.IsKeyDown(Keys.Up))
+            {
+                Camera.Move(new Vector2(0, -MoveSpeed));
+            }
+            if (state.IsKeyDown(Keys.Down))
+            {
+                Camera.Move(new Vector2(0, MoveSpeed));
+            }
+            if (state.IsKeyDown(Keys.Add))
+            {
+                Camera.Zoom(0.01f);
+                Console.WriteLine(Camera.ZoomAmount);
+            }
+            if (state.IsKeyDown(Keys.Subtract))
+            {
+                Camera.Zoom(-0.01f);
+                Console.WriteLine(Camera.ZoomAmount);
+            }
 
             base.Update(gameTime);
         }
@@ -91,11 +133,13 @@ namespace JSONFarseer
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Camera.Transform);
 
             spriteBatch.Draw(texture, new Vector2(10, 10), Color.White);
 
             spriteBatch.End();
+
+            PhysicsCore.DrawDebugData(GraphicsDevice);
 
             // TODO: Add your drawing code here
 

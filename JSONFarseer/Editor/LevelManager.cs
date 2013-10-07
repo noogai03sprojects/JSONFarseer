@@ -98,6 +98,7 @@ namespace Editor
 
                 case MouseMode.DrawRectangle:
                     tempRectangle.BottomRight = position;
+                    tempRectangle.Width = Math.Abs(tempRectangle.Width);
                     //CurrentLevel.Rectangles.Add(tempRectangle);
                     //tempRectangle = PhysicsRectangle.Empty;
                     Mousemode = MouseMode.DrawRectangleRotate;

@@ -16,17 +16,13 @@ namespace Editor
         Stopwatch timer;
 
         SpriteBatch spriteBatch;
-        ContentManager content;
-
-        //Texture2D test;
+        ContentManager content;        
 
         PrimitiveBatch primitiveBatch;
 
         float delta;
 
-        Vector2 ScreenCentre;
-
-        float angle = 0;
+        Vector2 ScreenCentre;        
 
         protected override void Initialize()
         {
@@ -63,9 +59,7 @@ namespace Editor
 
         private void Update(float delta)
         {
-            LevelManager.Update(delta);
-
-            angle += 0.5f * delta;
+            LevelManager.Update(delta);            
         }
 
         protected override void Draw()
@@ -77,17 +71,7 @@ namespace Editor
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-
-            LevelManager.Draw(primitiveBatch, spriteBatch);
-            
-
-            spriteBatch.Begin();
-
-            //spriteBatch.Draw(test, new Vector2(10, 10), Color.White);
-
-            spriteBatch.End();
-
-            primitiveBatch.DrawRectangle(false, ScreenCentre, new Vector2(100, 100), angle, Color.Red);
+            LevelManager.Draw(primitiveBatch, spriteBatch);                       
         }
     }
 }

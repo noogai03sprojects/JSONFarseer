@@ -17,11 +17,11 @@ namespace JSONFarseer
         [DataMember]
         private Vector2 position;
 
-        public float Width { get { return width; } set { width = value; } }
+        public float Width { get { return width; } set { width = Math.Abs(value); } }
         [DataMember]
         private float width;
 
-        public float Height { get { return height; } set { height = value; } }
+        public float Height { get { return height; } set { height = Math.Abs(value); } }
         [DataMember]
         private float height;
 
