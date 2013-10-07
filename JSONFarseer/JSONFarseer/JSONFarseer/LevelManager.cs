@@ -24,7 +24,7 @@ namespace JSONFarseer
                 {
                     rawData = reader.ReadToEnd();
                 }
-                Console.Write(rawData);
+                //Console.Write(rawData);
 
                 data = JsonConvert.DeserializeObject<LevelData>(rawData);
 
@@ -37,7 +37,7 @@ namespace JSONFarseer
 
             Art.LoadTileset(data.Tileset);
 
-            PhysicsCore.CreatePhysicsShapes(data.Rectangles, data.Circles);
+            PhysicsCore.CreateStaticPhysicsShapes(data.Rectangles, data.Circles);
             CurrentLevel = new Level();
             
         }

@@ -6,11 +6,11 @@ using Microsoft.Xna.Framework;
 
 namespace JSONFarseer
 {
-   struct NodeData
-    {
-        public int ID;
-        public Vector2 Position;
-        public float Rotation;
-        public float Scale;
-    }
+   //struct NodeData
+   // {
+   //     public int ID;
+   //     public Vector2 Position;
+   //     public float Rotation;
+   //     public float Scale;
+   // }
 }

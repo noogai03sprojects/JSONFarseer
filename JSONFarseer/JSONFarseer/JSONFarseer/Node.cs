@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework;
 
 namespace JSONFarseer
 {
-    class Node
-    {
-        public Texture2D Image;
-        public Vector2 Position;
-        public float Rotation;
-        public float Scale;
-    }
+    //class Node
+    //{
+    //    public Texture2D Image;
+    //    public Vector2 Position;
+    //    public float Rotation;
+    //    public float Scale;
+    //}
 }

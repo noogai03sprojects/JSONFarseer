@@ -52,9 +52,7 @@ namespace Editor
 
         public void LoadLevel(string path)
         {
-            LevelManager.LoadLevel(path);
-
-            
+            LevelManager.LoadLevel(path);            
         }
 
         private void Update(float delta)

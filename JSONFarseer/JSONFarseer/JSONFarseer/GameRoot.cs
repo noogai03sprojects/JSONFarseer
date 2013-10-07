@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.IO;
 using Newtonsoft.Json;
+using FarseerPhysics.Factories;
+using FarseerPhysics.Dynamics;
 
 namespace JSONFarseer
 {
@@ -20,9 +22,8 @@ namespace JSONFarseer
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        public static GameRoot Instance;
-
-        Texture2D texture;
+        PrimitiveBatch primBatch;
+        public static GameRoot Instance;        
 
         //Camera2D camera;
 
@@ -46,6 +47,7 @@ namespace JSONFarseer
             // TODO: Add your initialization logic here            
             PhysicsCore.Initialize(new Vector2(0, 9.82f));
             Camera.Initialize(GraphicsDevice.Viewport);
+            primBatch = new PrimitiveBatch(GraphicsDevice);
 
             ScreenCentre = GraphicsDevice.Viewport.Bounds.Center.ToVector();
             base.Initialize();
@@ -58,14 +60,14 @@ namespace JSONFarseer
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            texture = Content.Load<Texture2D>("1v1");
+            spriteBatch = new SpriteBatch(GraphicsDevice);            
 
             LevelManager.LoadLevel("data\\testLevel.json");
 
             PhysicsCore.LoadDebugContent(GraphicsDevice, Content);
 
+            Body temp = BodyFactory.CreateCircle(PhysicsCore.World, 0.2f, 1, new Vector2(1, 0));
+            temp.BodyType = BodyType.Dynamic;
             // TODO: use this.Content to load your game content here
         }
 
@@ -122,6 +124,8 @@ namespace JSONFarseer
                 Console.WriteLine(Camera.ZoomAmount);
             }
 
+            PhysicsCore.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -133,15 +137,11 @@ namespace JSONFarseer
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Camera.Transform);
-
-            spriteBatch.Draw(texture, new Vector2(10, 10), Color.White);
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Camera.Transform);            
 
             spriteBatch.End();
 
-            PhysicsCore.DrawDebugData(GraphicsDevice);
-
-            // TODO: Add your drawing code here
+            PhysicsCore.DrawDebugData(GraphicsDevice, primBatch);            
 
             base.Draw(gameTime);
         }

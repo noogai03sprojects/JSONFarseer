@@ -8,6 +8,8 @@ using FarseerPhysics.Factories;
 using FarseerPhysics.DebugViews;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using FarseerPhysics.Collision.Shapes;
+using FarseerPhysics.Common;
 
 namespace JSONFarseer
 {
@@ -57,7 +59,7 @@ namespace JSONFarseer
             IsIntitialized = true;
         }
 
-        public static void CreatePhysicsShapes(List<PhysicsRectangle> rectangles, List<PhysicsCircle> circles)
+        public static void CreateStaticPhysicsShapes(List<PhysicsRectangle> rectangles, List<PhysicsCircle> circles)
         {
             foreach (PhysicsRectangle rectangle in rectangles)
             {
@@ -72,16 +74,28 @@ namespace JSONFarseer
             }
         }
 
+        public static Body CreateFromPhysicsData(Vector2 position, List<PhysicsRectangle> rectangles, List<PhysicsCircle> circles)
+        {
+            throw new NotImplementedException();
+        }
+
         static DebugViewXNA debug;
+        static Matrix view;
+        static Matrix projection;
 
         public static void LoadDebugContent(GraphicsDevice device, ContentManager content)
         {
             debug.LoadContent(device, content);
         }
 
-        public static void DrawDebugData(GraphicsDevice device)
+        public static void Update(GameTime gameTime)
         {
-            Matrix projection = Matrix.CreateOrthographicOffCenter(0f, device.Viewport.Width / MetreInPixels,
+            world.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+        }
+
+        public static void DrawDebugData(GraphicsDevice device, PrimitiveBatch primBatch)
+        {
+            projection = Matrix.CreateOrthographicOffCenter(0f, device.Viewport.Width / MetreInPixels,
                                                          device.Viewport.Height / MetreInPixels, 0f, 0f,
                                                          1f);
 
@@ -89,9 +103,8 @@ namespace JSONFarseer
                 * Matrix.CreateTranslation(new Vector3(ToMetres(-GameRoot.ScreenCentre), 0f))
                 * Matrix.CreateScale(Camera.ZoomAmount, Camera.ZoomAmount, 0)
                 * Matrix.CreateTranslation(new Vector3(ToMetres(GameRoot.ScreenCentre), 0f));
-            //view = Camera.Transform;
-
-            debug.RenderDebugData(ref projection, ref view);
+            
+            debug.RenderDebugData(ref projection, ref view);        
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FarseerPhysics.DebugViews
 {
-    public class PrimitiveBatch : IDisposable
+    public class DebugPrimitiveBatch : IDisposable
     {
         private const int DefaultBufferSize = 500;
 
@@ -31,12 +31,12 @@ namespace FarseerPhysics.DebugViews
         /// that PrimitiveBatch will need.
         /// </summary>
         /// <param name="graphicsDevice">The graphics device.</param>
-        public PrimitiveBatch(GraphicsDevice graphicsDevice)
+        public DebugPrimitiveBatch(GraphicsDevice graphicsDevice)
             : this(graphicsDevice, DefaultBufferSize)
         {
         }
 
-        public PrimitiveBatch(GraphicsDevice graphicsDevice, int bufferSize)
+        public DebugPrimitiveBatch(GraphicsDevice graphicsDevice, int bufferSize)
         {
             if (graphicsDevice == null)
             {
