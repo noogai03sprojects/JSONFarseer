@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace JSONFarseer
 {
-    public struct PhysicsCircle
+    public class PhysicsCircle : IDraggable
     {
         public Vector2 Position;
         public float Radius;
@@ -15,6 +15,16 @@ namespace JSONFarseer
         {
             Position = position;
             Radius = radius;
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            Position = position;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return Position;
         }
     }
 }

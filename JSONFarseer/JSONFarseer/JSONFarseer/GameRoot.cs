@@ -66,7 +66,7 @@ namespace JSONFarseer
 
             PhysicsCore.LoadDebugContent(GraphicsDevice, Content);
 
-            Body temp = BodyFactory.CreateCircle(PhysicsCore.World, 0.2f, 1, new Vector2(1, 0));
+            Body temp = BodyFactory.CreateCircle(PhysicsCore.World, 0.2f, 1, PhysicsCore.ToMetres(LevelManager.CurrentLevel.StartPoint));
             temp.BodyType = BodyType.Dynamic;
             // TODO: use this.Content to load your game content here
         }

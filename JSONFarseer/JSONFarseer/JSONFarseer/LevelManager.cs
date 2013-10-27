@@ -9,7 +9,7 @@ namespace JSONFarseer
 {
     static class LevelManager
     {
-        static Level CurrentLevel;
+        public static Level CurrentLevel;
 
         public static void LoadLevel(string path)
         {
@@ -39,7 +39,7 @@ namespace JSONFarseer
 
             PhysicsCore.CreateStaticPhysicsShapes(data.Rectangles, data.Circles);
             CurrentLevel = new Level();
-            
+            CurrentLevel.StartPoint = data.StartPosition;
         }
     }
 }

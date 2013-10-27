@@ -32,5 +32,6 @@
       "rotation": 0.007812341
     }
   ],
-  "Tileset": {}
+  "Tileset": {},
+  "StartPosition": "861, 63"
 }

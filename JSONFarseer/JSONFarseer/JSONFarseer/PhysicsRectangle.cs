@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace JSONFarseer
 {
     [DataContract]
-    public class PhysicsRectangle
+    public class PhysicsRectangle : IDraggable
     {
         //[JsonIgnore]
         public Vector2 Position { get { return position; } set { position = value; } }
@@ -94,6 +94,20 @@ namespace JSONFarseer
                     throw new Exception("rect is rotated, cba to do maths");                  
             }
         }
+
+        #region editor functions from various interfaces
+
+        public void SetPosition(Vector2 position)
+        {
+            Position = position;
+        }
+
+        public Vector2 GetPosition()
+        {
+            return Position;
+        }
+
+        #endregion
 
         public PhysicsRectangle()
         {

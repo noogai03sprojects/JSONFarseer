@@ -9,6 +9,10 @@ namespace JSONFarseer
 {
     static class Extensions
     {
+        public static bool ContainsVector(this Rectangle rectangle, Vector2 point)
+        {
+            return (point.X > rectangle.Left && point.X <= rectangle.Right) && (point.Y > rectangle.Top && point.Y <= rectangle.Bottom);
+        }
         public static Vector2 ToVector(this Point point)
         {
             return new Vector2(point.X, point.Y);

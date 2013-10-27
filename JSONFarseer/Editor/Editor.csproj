@@ -85,6 +85,7 @@
     <Compile Include="SpinningTriangleControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="StartPoint.cs" />
     <Compile Include="TestXNAControl.cs">
       <SubType>Component</SubType>
     </Compile>

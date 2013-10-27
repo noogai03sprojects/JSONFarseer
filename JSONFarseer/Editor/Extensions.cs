@@ -60,7 +60,16 @@ namespace Editor
 
         //    //primitiveBatch.End();
         //}
-
+        public static void Intify(this Vector2 vector)
+        {
+            vector.X = (int)vector.X;
+            vector.Y = (int)vector.Y;
+        }
+        public static bool ContainsVector(this Rectangle rect, Vector2 point)
+        {
+            point.Intify();
+            return ((point.X > rect.Left && (point.X < (rect.Left + rect.Width))) && (point.Y > rect.Top && (point.Y < (rect.Top + rect.Height))));
+        }
         public static void DrawRectangle(this PrimitiveBatch primitiveBatch, bool filled, Rectangle rectangle, float rotation, Color color)
         {
             primitiveBatch.DrawRectangle(filled, new Vector2(rectangle.Center.X, rectangle.Center.Y), new Vector2(rectangle.Height, rectangle.Width), rotation, color);

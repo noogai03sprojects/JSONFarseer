@@ -119,7 +119,9 @@
   <ItemGroup>
     <Compile Include="Art.cs" />
     <Compile Include="Camera2D.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="IDraggable.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LevelData.cs" />
     <Compile Include="LevelManager.cs" />

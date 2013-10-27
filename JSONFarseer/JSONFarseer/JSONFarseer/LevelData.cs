@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace JSONFarseer
 {
@@ -15,12 +16,16 @@ namespace JSONFarseer
 
         public Dictionary<int, string> Tileset;
 
+        public Vector2 StartPosition;
+
         public LevelData()
         {
             Circles = new List<PhysicsCircle>();
             Rectangles = new List<PhysicsRectangle>();
 
             Tileset = new Dictionary<int, string>();
+
+            StartPosition = Vector2.Zero;
         }
     }
 }
