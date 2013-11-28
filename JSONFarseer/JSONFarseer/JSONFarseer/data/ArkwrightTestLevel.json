@@ -1,0 +1,79 @@
+{
+  "Circles": [],
+  "Rectangles": [
+    {
+      "position": "70.5, 57.5",
+      "width": 113.0,
+      "height": 9.0,
+      "rotation": -2.60414934
+    },
+    {
+      "position": "486.5, 81.5",
+      "width": 753.0,
+      "height": 13.0,
+      "rotation": -3.13762975
+    },
+    {
+      "position": "927.5, 85",
+      "width": 13.0,
+      "height": 132.0,
+      "rotation": -2.815951
+    },
+    {
+      "position": "878.5, 169",
+      "width": 115.0,
+      "height": 14.0,
+      "rotation": 2.54951668
+    },
+    {
+      "position": "516.5, 208.5",
+      "width": 757.0,
+      "height": 15.0,
+      "rotation": 3.07609081
+    },
+    {
+      "position": "49, 248.5",
+      "width": 16.0,
+      "height": 209.0,
+      "rotation": 2.78822255
+    },
+    {
+      "position": "376.5, 322.5",
+      "width": 687.0,
+      "height": 21.0,
+      "rotation": -3.06869674
+    },
+    {
+      "position": "805, 358",
+      "width": 28.0,
+      "height": 220.0,
+      "rotation": -2.60117316
+    },
+    {
+      "position": "646.5, 432.5",
+      "width": 223.0,
+      "height": 17.0,
+      "rotation": 3.05881286
+    },
+    {
+      "position": "466, 413.5",
+      "width": 242.0,
+      "height": 19.0,
+      "rotation": -2.92808318
+    },
+    {
+      "position": "204.5, 469",
+      "width": 17.0,
+      "height": 188.0,
+      "rotation": 2.672626
+    },
+    {
+      "position": "484.5, 541.5",
+      "width": 497.0,
+      "height": 21.0,
+      "rotation": -3.06541944
+    }
+  ],
+  "Tileset": {},
+  "StartPosition": "62, 0"
+}

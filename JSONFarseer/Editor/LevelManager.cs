@@ -92,7 +92,8 @@ namespace Editor
                     break;
 
                 case MouseMode.DrawRectangle:
-                    tempRectangle = new PhysicsRectangle(position, Vector2.Zero, 0);
+                    tempRectangle = new PhysicsRectangle(position, position *2, 0);
+                    tempRectangle.TopLeft = position;
                     break;
                 case MouseMode.DrawRectangleRotate:
                     //tempRectangle = new PhysicsRectangle(position, Vector2.Zero, 0);
